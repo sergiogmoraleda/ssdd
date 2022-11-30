@@ -5,7 +5,7 @@ import logging
 import Ice
 
 import IceFlix  # pylint:disable=import-error
-
+Ice.loadSlice ('iceflix.ice')
 
 class Main(IceFlix.Main):
     """Servant for the IceFlix.Main interface.
@@ -17,6 +17,8 @@ class Main(IceFlix.Main):
     def getAuthenticator(self, current):  # pylint:disable=invalid-name, unused-argument
         "Return the stored Authenticator proxy."
         # TODO: implement
+        
+        
         return None
 
     def getCatalog(self, current):  # pylint:disable=invalid-name, unused-argument
@@ -44,16 +46,4 @@ class MainApp(Ice.Application):
         self.proxy = None
         self.adapter = None
 
-    def run(self, args):
-        """Run the application, adding the needed objects to the adapter."""
-        logging.info("Running Main application")
-        comm = self.communicator()
-        self.adapter = comm.createObjectAdapter("MainAdapter")
-        self.adapter.activate()
-
-        self.proxy = self.adapter.addWithUUID(self.servant)
-
-        self.shutdownOnInterrupt()
-        comm.waitForShutdown()
-
-        return 0
+   
