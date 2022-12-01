@@ -1,7 +1,7 @@
 //
 // P1 version
 //
-[["ice-prefix"]] module IceFlix {
+[["ice-prefix"]] module iceflix {
 
     ///////////// Errors /////////////
     // Raised if provided authentication token is wrong

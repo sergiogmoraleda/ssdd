@@ -1,6 +1,6 @@
 import Ice
 Ice.loadSlice('iceFlix.ice')
-import IceFlix
+import iceflix
 
 import os
 import logging
